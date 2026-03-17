@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Marina Garden Café is a relaxing garden restaurant offering delicious food, coffee, and special events. Visit us for a beautiful dining experience.">
-<title>Marina Garden Café | Garden Restaurant in Lapu-Lapu City Cebu</title>
 
+<title>Marina Garden Café</title>
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -22,43 +22,127 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 /* MOBILE DESIGN */
-@media(max-width:768px){
+@media (max-width: 768px){
 
 section{
-padding:60px 6%;
+padding:60px 5%;
 }
 
 .hero{
 height:70vh;
-margin-top:70px;
-padding:20px;
 }
 
 .hero h1{
-font-size:28px;
-line-height:1.3;
+font-size:26px;
 }
 
 .hero p{
-font-size:15px;
-padding:0 10px;
-}
-.btn{
-padding:10px 25px;
 font-size:14px;
 }
-.gallery img{
-height:180px;
-}
 
-.event-box{
-padding:20px;
-}
-
-.info-items{
+.about,
+.mv,
+.menu-board,
+.menu-two-column,
+.contact{
 grid-template-columns:1fr;
 }
+
+.gallery{
+grid-template-columns:1fr;
 }
+
+.events{
+grid-template-columns:1fr;
+}
+
+nav ul{
+flex-direction:column;
+}
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px){
+
+section{
+padding:70px 8%;
+}
+
+/* HERO */
+.hero h1{
+font-size:36px;
+}
+
+/* STACK SECTIONS */
+.about,
+.mv,
+.menu-board,
+.menu-two-column,
+.contact{
+grid-template-columns:1fr;
+}
+
+/* 2 COLUMNS LAYOUT */
+.gallery{
+grid-template-columns:repeat(2,1fr);
+}
+
+.events{
+grid-template-columns:repeat(2,1fr);
+}
+
+/* HEADER */
+nav ul{
+gap:15px;
+}
+
+}
+@media (min-width: 1025px) and (max-width: 1440px){
+
+section{
+padding:80px 12%;
+}
+
+/* PERFECT GRID BALANCE */
+.gallery{
+grid-template-columns:repeat(3,1fr);
+}
+
+.events{
+grid-template-columns:repeat(3,1fr);
+}
+
+/* TEXT WIDTH CONTROL */
+.hero p{
+max-width:700px;
+margin:auto;
+}
+
+}
+
+@media (min-width: 1441px){
+
+section{
+padding:90px 15%;
+}
+
+.hero h1{
+font-size:52px;
+}
+
+.hero p{
+font-size:18px;
+max-width:800px;
+margin:auto;
+}
+
+.gallery{
+grid-template-columns:repeat(4,1fr);
+}
+
+}
+
+
 body {
     background: rgba(2, 43, 8, 0.116); /* soft green tint */
     color: #044b02;
@@ -166,6 +250,7 @@ color:white;
 padding:20px;
 margin-top:70px;
 }
+
 
 .hero h1{
 font-size:48px;
@@ -609,7 +694,7 @@ experiences for families and friends.
         
 <section id="about">
 
-<h1 class="section-title">About Us</h1>
+<h2 class="section-title">About Us</h2>
 
 <div class="about">
 
@@ -663,7 +748,7 @@ To become a leading dining destination known for its beautiful garden ambiance, 
 
 <section id="menu">
 <div class="mv-box">
-<h1 class="section-title">Our Menu</h1>
+<h2 class="section-title">Our Menu</h2>
 
 <div class="gallery" id="menuGrid">
 
@@ -709,7 +794,7 @@ Show More
 </div>
 <section id="events">
 <div class="mv-box">
-<h1 class="section-title">Event Package</h1>
+<h2 class="section-title">Event Package</h2>
 
 <div class="gallery" id="eventsGrid">
 
@@ -731,7 +816,7 @@ Show More
 <section id="gallery">
 
 <div class="mv-box">
-<h1 class="section-title">Gallery</h1>
+<h2 class="section-title">Gallery</h2>
 
 <div class="gallery" id="galleryGrid">
 
@@ -757,7 +842,7 @@ Show More
 <img src="g19.jpg" class="hidden" onclick="openPopup(this.src)">
 <img src="g20.jpg" class="hidden" onclick="openPopup(this.src)">
 <img src="G21.jpg" class="hidden" onclick="openPopup(this.src)">
-<img src="G22.jpg" class="hidden" onclick="openPopup(this.src)">
+<img src="g22.jpg" class="hidden" onclick="openPopup(this.src)">
 <img src="G23.jpg" class="hidden" onclick="openPopup(this.src)">
 <img src="G24.jpg" class="hidden" onclick="openPopup(this.src)">
 <img src="G25.jpg" class="hidden" onclick="openPopup(this.src)">
@@ -780,13 +865,12 @@ Show More
 </section>
 
 <section id="info">
-<div class="info-section">
+    <div class="info-section">
+<h2 class="section-title">Restaurant Information</h2>
+
+
 
 <div class="info-group">
-<h1 class="section-title">Restaurant Information</h1>
-
-
-
 <h3>Service options</h3>
 <div class="info-items">
 <span><i class="fas fa-check"></i> Outdoor seating</span>
@@ -885,7 +969,7 @@ Show More
 </div>
 
 </div>
-</div>
+
 </section>
 <section id="contact">
 
@@ -1027,6 +1111,9 @@ closePopup();
 }
 });
 
+/* KEYBOARD NAVIGATION */
+document.addEventListener("keydown", function(e){
+
 if(document.getElementById("popup").style.display === "flex"){
 
 if(e.key === "ArrowRight"){
@@ -1043,6 +1130,7 @@ closePopup();
 
 }
 
+});
 
 /* KEYBOARD NAVIGATION */
 document.addEventListener("keydown", function(e){
